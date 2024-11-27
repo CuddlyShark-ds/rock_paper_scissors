@@ -9,6 +9,11 @@ function comp_choice() {
 
 // have the player choose rock, paper or scissor
 function player_click(choice) {
+    if(document.getElementById("two") != undefined){
+        const removable_element = document.getElementById("two")
+        removable_element.remove()
+    }
+    
     player_choice = parseInt(choice)
     computers_choice = comp_choice()
     comparesion(player_choice, computers_choice)
@@ -56,20 +61,20 @@ function comparesion(player, computer) {
 function computer_wins() {
     // add html to announce computer as winner
     const div_id = document.getElementById("one") 
-    let html = "<h2>You loose this round. The computer chose " + available_choices[computers_choice] + "</h2>"
+    let html = "<h2 id=\"two\">You loose this round. The computer chose " + available_choices[computers_choice] + "</h2>"
     div_id.insertAdjacentHTML("afterend", html)
 }
 
 function player_wins() {
     // add html to announce player as winner
     const div_id = document.getElementById("one") 
-    let html = "<h2>You won, congrats!</h2>"
+    let html = "<h2 id=\"two\">You won, congrats!</h2>"
     div_id.insertAdjacentHTML("afterend", html)
 }
 
 function its_a_tie() {
     // add html to announce a tie
     const div_id = document.getElementById("one") 
-    let html = "<h2>It was a tie, you both chose " + available_choices[player_choice] + "</h2>"
+    let html = "<h2 id=\"two\">It was a tie, you both chose " + available_choices[player_choice] + "</h2>"
     div_id.insertAdjacentHTML("afterend", html)
 }
