@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: rgb(37, 19, 61);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    padding: 25px 50px 25px 50px;
+    color: white;
+    background-color: #4337eb;
+    border: 2px white solid;
+    border-radius: 10px;
+    font-size: medium;
+}
