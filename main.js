@@ -9,20 +9,18 @@ function comp_choice() {
 
 // have the player choose rock, paper or scissor
 function player_click(choice) {
-    player_choice = choice
+    player_choice = parseInt(choice)
     computers_choice = comp_choice()
-    comparesion()
+    comparesion(player_choice, computers_choice)
 }
 // compare the two choices
-function comparesion() {
-    console.log("cmp choice " + computers_choice + " play choice " + player_choice)
-
-    switch(player_choice) {
+function comparesion(player, computer) {
+    switch(player) {
         case 0:
-            if(computers_choice == 1) {
+            if(computer == 1) {
                 computer_wins()
             }
-            else if(computers_choice == 2) {
+            else if(computer == 2) {
                 player_wins()
             }
             else{
@@ -30,10 +28,10 @@ function comparesion() {
             }
             break;
         case 1:
-            if(computers_choice == 2) {
+            if(computer == 2) {
                 computer_wins()
             }
-            else if(computers_choice == 0) {
+            else if(computer == 0) {
                 player_wins()
             }
             else{
@@ -41,10 +39,10 @@ function comparesion() {
             }
             break;
         case 2:
-            if(computers_choice == 0) {
+            if(computer == 0) {
                 computer_wins()
             }
-            else if(computers_choice == 1) {
+            else if(computer == 1) {
                 player_wins()
             }
             else{
@@ -55,3 +53,23 @@ function comparesion() {
 }
 
 // announce a winner
+function computer_wins() {
+    // add html to announce computer as winner
+    const div_id = document.getElementById("one") 
+    let html = "<h2>You loose this round. The computer chose " + available_choices[computers_choice] + "</h2>"
+    div_id.insertAdjacentHTML("afterend", html)
+}
+
+function player_wins() {
+    // add html to announce player as winner
+    const div_id = document.getElementById("one") 
+    let html = "<h2>You won, congrats!</h2>"
+    div_id.insertAdjacentHTML("afterend", html)
+}
+
+function its_a_tie() {
+    // add html to announce a tie
+    const div_id = document.getElementById("one") 
+    let html = "<h2>It was a tie, you both chose " + available_choices[player_choice] + "</h2>"
+    div_id.insertAdjacentHTML("afterend", html)
+}
